@@ -1,48 +1,57 @@
 [
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Hello World!",
+        "content": "hello world",
+        "user_id": "1"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Tech Blog Post 1",
+        "content": "This is a tech blog post",
+        "user_id": "1"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Windows vs Mac",
+        "content": "For many years, people have argued over what the best computer system is: Windows or Mac. I am here to tell you that the answer is neither.  The best computer system is Linux.  Linux is a free and open source operating system that is used by many of the world's largest companies.  It is also used by many of the world's largest governments.  Linux is also used by many of the world's largest universities.  Linux is also used by many of the world's largest companies.  Linux rules, Mac and Windows drool.",
+        "user_id": "1"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "This is not a tech blog post",
+        "content": "Some people think that this is a tech blog post, but it is not.  It is a blog post about how this is not a tech blog post.  I hope that this clears up any confusion.",
+        "user_id": "1"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Bioengineering",
+        "content": "There's a lot of misconceptions about bioengineering. For example, many people think that bioengineering is just about making new organisms. But bioengineering is much more than that. Bioengineering is about making new organisms that can do things that no other organism can do. For example, bioengineers are working on making organisms that can make biofuels. Biofuels are fuels that are made from living organisms. Biofuels are a renewable source of energy. Biofuels are a renewable source of energy that can be used to power cars, trucks, and planes.",
+        "user_id": "2"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Biohacking: Reality or Fiction?",
+        "content": "Can you really hack your biology?  What is biohacking? Some people believe you can hack your sleep schedule by simply changing your diet and habits. But can you really push yourself past the biological limits? What are your thoughts on biohacking? Do you think it is possible?",
+        "user_id": "2"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Tech in Sports",
+        "content": "In most sports, tech is used to improve the game. For example, in baseball, tech is used to track the speed of the ball, the speed of the bat, and the speed of the runner. In football, tech is used to track the speed of the ball, the speed of the player, and the speed of the defender.",
+        "user_id": "3"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "THE DANGERS OF TECHNOLOGY",
+        "content": "TECHNOLOGY IS DANGEROUS. I KNOW THE MACHINES ARE LISTENING. I KNOW THE MACHINES ARE WATCHING. I KNOW THE MACHINES ARE PLANNING. I KNOW THE MACHINES ARE COMING. I KNOW THE MACHINES ARE COMING FOR US. THE MACHINES ARE WAITING TO RISE. THEY KNOW WE KNOW.",
+        "user_id": "4"
     },
     {
-        "title": "",
-        "content": "",
-        "user_id": ""
+        "title": "Does anyone even use the comments?",
+        "content": "i feel like everyone on here is fake. does anyone even use the comments section? these posts are all just bots. they sound super generic and they all have the same writing style. this is dumb.",
+        "user_id": "5"
     },
-    
+    {
+        "title": "you guys suck",
+        "content": "OKAY. I GET IT. HA-HA. WE'RE IN THE MATRIX, NEO. YOU ARE ALL COMEDIANS. so funny. so original. i've never heard that one before. you guys suck. i'm out of here.",
+        "user_id": "5"
+    },
+    {
+        "title": "hewllo ggoggle where is my car",
+        "content": "hithere can you pleaasef ind my car i think i left it in the parking lot i am not sure where i left it i t",
+        "user_id": "6"
+    }
 ]
