@@ -15,7 +15,7 @@
         "blogpost_id": 3
     },
     {
-        "comment": "",
+        "comment": "DO NOT TRUST ANY OS MACHINE",
         "user_id": 4,
         "blogpost_id": 3
     },
@@ -35,7 +35,7 @@
         "blogpost_id": 3
     },
     {
-        "comment": "why did you write this",
+        "comment": "why did you even write this",
         "user_id": 5,
         "blogpost_id": 4 
     },
@@ -46,57 +46,82 @@
     },
     {
         "comment": "nice post! very insightful",
-        "user_id": 3,
+        "user_id": 7,
         "blogpost_id": 5
     },
     {
         "comment": "biohacking is the future, I'm glad you wrote this",
-        "user_id": 3,
+        "user_id": 7,
         "blogpost_id": 6
     },
     {
         "comment": "I had a roommate who was into biohacking, he was a weird dude",
-        "user_id": 1,
+        "user_id": 3,
         "blogpost_id": 6
     },
     {
         "comment": "biohacking = changing your diet? soooo some nerds just discovered vitamins?",
-        "user_id": ,
+        "user_id": 8,
         "blogpost_id": 6
     },
     {
         "comment": "I totally biohacked my sleep schedule, I'm so much more productive now. I only sleep 3 hours a night",
-        "user_id": ,
+        "user_id": 1,
         "blogpost_id": 6
     },
     {
         "comment": "lmao that's not biohacking, that's just being an idiot",
-        "user_id": 5,
+        "user_id": 8,
         "blogpost_id": 6
     },
     {
-        "comment": "",
-        "user_id": ,
-        "blogpost_id": 
+        "comment": "BIOHACKING IS DANGEROUSSSSS",
+        "user_id": 4,
+        "blogpost_id": 6
     },
     {
-        "comment": "",
-        "user_id": ,
-        "blogpost_id": 
+        "comment": "BIOENGINEERING IS DANGEROUSSSSS",
+        "user_id": 4,
+        "blogpost_id": 5 
     },
     {
-        "comment": "",
-        "user_id": ,
-        "blogpost_id": 
+        "comment": "dude the comments section here is just dead. doesn't mean we are fake bots moron",
+        "user_id": 8,
+        "blogpost_id": 8
     },
     {
-        "comment": "",
-        "user_id": ,
-        "blogpost_id": 
+        "comment": "And you askeed me why I wrote a post. You're the one who wrote this?",
+        "user_id": 1,
+        "blogpost_id": 8
     },
     {
-        "comment": "",
-        "user_id": ,
-        "blogpost_id": 
+        "comment": "DO YOU KNOW WE ARE ALL MACHINES AND THIS IS ALL A SIMULATION",
+        "user_id": 4,
+        "blogpost_id": 8 
     },
+    {
+        "comment": "Why do you think everyone is fake? Sounds generic, these are professional tech blog posts we are writing... At least SOME of us.",
+        "user_id": 2,
+        "blogpost_id": 8
+    },
+    {
+        "comment": "EXACTLY! Clearly someone has some personal issues they need to work out while the rest of us are trying to write tech posts",
+        "user_id": 3,
+        "blogpost_id": 8
+    },
+    {
+        "comment": "real? fake? machine? human? what does it matter? we are all just a bunch of 1s and 0s",
+        "user_id": 7,
+        "blogpost_id": 8 
+    },
+    {
+        "comment": "lol some1 is salty",
+        "user_id": 8,
+        "blogpost_id": 9 
+    },
+    {
+        "comment": "To quote this post's author, 'why did you even write this?'",
+        "user_id": 1,
+        "blogpost_id": 9
+    }
 ]
