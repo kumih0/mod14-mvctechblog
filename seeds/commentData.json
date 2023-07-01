@@ -1,0 +1,102 @@
+[
+    {
+        "comment": "This is a comment",
+        "user_id": 1,
+        "blogpost_id": 1
+    },
+    {
+        "comment": "This is another comment",
+        "user_id": 2,
+        "blogpost_id": 2
+    },
+    {
+        "comment": "This is a third comment",
+        "user_id": 3,
+        "blogpost_id": 3
+    },
+    {
+        "comment": "",
+        "user_id": 4,
+        "blogpost_id": 3
+    },
+    {
+        "comment": "The title of this blogpost is misleading",
+        "user_id": 2,
+        "blogpost_id": 3
+    },
+    {
+        "comment": "The title of this blogpost is not misleading",
+        "user_id": 2,
+        "blogpost_id": 4 
+    },
+    {
+        "comment": "this is stupid",
+        "user_id": 5,
+        "blogpost_id": 3
+    },
+    {
+        "comment": "why did you write this",
+        "user_id": 5,
+        "blogpost_id": 4 
+    },
+    {
+        "comment": "Why wouldn't I write this? The better question is why did you comment this?",
+        "user_id": 1,
+        "blogpost_id": 4
+    },
+    {
+        "comment": "nice post! very insightful",
+        "user_id": 3,
+        "blogpost_id": 5
+    },
+    {
+        "comment": "biohacking is the future, I'm glad you wrote this",
+        "user_id": 3,
+        "blogpost_id": 6
+    },
+    {
+        "comment": "I had a roommate who was into biohacking, he was a weird dude",
+        "user_id": 1,
+        "blogpost_id": 6
+    },
+    {
+        "comment": "biohacking = changing your diet? soooo some nerds just discovered vitamins?",
+        "user_id": ,
+        "blogpost_id": 6
+    },
+    {
+        "comment": "I totally biohacked my sleep schedule, I'm so much more productive now. I only sleep 3 hours a night",
+        "user_id": ,
+        "blogpost_id": 6
+    },
+    {
+        "comment": "lmao that's not biohacking, that's just being an idiot",
+        "user_id": 5,
+        "blogpost_id": 6
+    },
+    {
+        "comment": "",
+        "user_id": ,
+        "blogpost_id": 
+    },
+    {
+        "comment": "",
+        "user_id": ,
+        "blogpost_id": 
+    },
+    {
+        "comment": "",
+        "user_id": ,
+        "blogpost_id": 
+    },
+    {
+        "comment": "",
+        "user_id": ,
+        "blogpost_id": 
+    },
+    {
+        "comment": "",
+        "user_id": ,
+        "blogpost_id": 
+    },
+]

@@ -22,5 +22,13 @@
     {
         "username": "PickleInspector",
         "password": "privateeye"
+    },
+    {
+        "username": "AnotherUser",
+        "password": "AnotherPassword"
+    },
+    {
+        "username": "User3",
+        "password": "Password3"
     }
 ]
