@@ -20,7 +20,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,7 +27,7 @@ User.init(
         len: [8],
       },
     },
-
+  },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
