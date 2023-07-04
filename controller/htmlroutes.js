@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+//get homepage route
 router.get('/', async (req, res) => {
     try {
         const blogpostData = await BlogPost.findAll({
@@ -14,8 +15,8 @@ router.get('/', async (req, res) => {
         });
         const blogposts = blogpostData.map((blogpost) => blogpost.get({
             where:{user_id: req.session.user_id}}, { plain: true }));
-        res.status(200).json(blogposts);
-        res.render('dashboard', {
+        // res.status(200).json(blogposts);
+        res.render('homepage', {
             blogposts,
             logged_in: req.session.logged_in,
         });
@@ -23,3 +24,6 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+module.exports = router;
