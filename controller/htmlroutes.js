@@ -25,5 +25,26 @@ router.get('/', async (req, res) => {
     }
 });
 
+//get blogpost by id, to view specific blogpost
+router.get('/blogpost/:id', async (req, res) => {
+    try {
+        const blogpostData = await BlogPost.findByPk(req.params.id, {
+            include: 
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+        });
+        const blogpost = blogpostData.get({ plain: true });
+        res.render('blogpost', {
+            ...blogpost,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//
 
 module.exports = router;
