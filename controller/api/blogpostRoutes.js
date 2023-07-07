@@ -60,4 +60,36 @@ router.get('/:id', async (req, res) => {
 }
 );
 
+//create new blogpost
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const newBlogPost = await BlogPost.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newBlogPost);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
+);
 
+//delete blogpost by id
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const blogpostData = await BlogPost.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        if (!blogpostData) {
+            res.status(404).json({ message: 'No blogpost found with this id!' });
+            return;
+        }
+        res.status(200).json(blogpostData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+);
