@@ -62,5 +62,21 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
+//get other user profile page
+router.get('/profile/:id', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: BlogPost }],
+        });
+        const user = userData.get({ plain: true });
+        res.render('profile', {
+            ...user,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
