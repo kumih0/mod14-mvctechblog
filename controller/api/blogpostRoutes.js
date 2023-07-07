@@ -77,24 +77,38 @@ router.post('/', withAuth, async (req, res) => {
 //delete blogpost by id, only if you are the creator of post
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const blogpostData = await BlogPost.findByPk(req.params.id, {
-            where: {
-                user_id: req.session.user_id
-            }
-        });
-        if (blogpostData) {
-            await BlogPost.destroy({
-                where: {
+        const blogpostData = await BlogPost.destroy({
+                    where: {
                     id: req.params.id,
                     user_id: req.session.user_id,
                 },
             });
             res.status(200).json(`blogpost id ${req.params.id}, ${blogpostData.title}, deleted`)
-        } else {
+        if(!blogpostData){
             res.status(404).json({ message: 'No blogpost found with this id!' });
         }
     } catch (err) {
         res.status(500).json(err);
     }
-}
-);
+});
+
+//update/edit blogpost by id
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const blogpostData = await BlogPost.update({
+            ...req.body
+        },
+            {
+                where: {
+                user_id: req.session.user_id
+            }
+        })
+        if(!blogpostData){
+            res.status(404).json('No blogpost with that id!')
+        }
+        res.status(200).json(blogpostData);
+
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
