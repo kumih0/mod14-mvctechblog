@@ -1,7 +1,9 @@
 const sequelize = require('../config/connection');
-const userData = require('./userData.json');
-const blogpostData = require('./blogData.json');
 const { User, BlogPost, Comment } = require('../models');
+
+const userData = require('./userData.json');
+const blogpostData = require('./blogpostData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -18,4 +20,4 @@ const seedDatabase = async () => {
     process.exit(0);
     }
 
-    module.exports = seedDatabase;
+    seedDatabase();
