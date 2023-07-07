@@ -46,11 +46,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const blogpostData = await BlogPost.findByPk(req.params.id, {
-            include: 
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
+            include:
+            {
+                model: User,
+                attributes: ['username'],
+            },
         });
         const blogpost = blogpostData.get({ plain: true });
         res.status(200).json(blogpost);
@@ -60,7 +60,7 @@ router.get('/:id', async (req, res) => {
 }
 );
 
-//create new blogpost
+//create new blogpost (if logged in)
 router.post('/', withAuth, async (req, res) => {
     try {
         const newBlogPost = await BlogPost.create({
@@ -74,20 +74,25 @@ router.post('/', withAuth, async (req, res) => {
 }
 );
 
-//delete blogpost by id
+//delete blogpost by id, only if you are the creator of post
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const blogpostData = await BlogPost.destroy({
+        const blogpostData = await BlogPost.findByPk(req.params.id, {
             where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
+                user_id: req.session.user_id
+            }
         });
-        if (!blogpostData) {
+        if (blogpostData) {
+            await BlogPost.destroy({
+                where: {
+                    id: req.params.id,
+                    user_id: req.session.user_id,
+                },
+            });
+            res.status(200).json(`blogpost id ${req.params.id}, ${blogpostData.title}, deleted`)
+        } else {
             res.status(404).json({ message: 'No blogpost found with this id!' });
-            return;
         }
-        res.status(200).json(blogpostData);
     } catch (err) {
         res.status(500).json(err);
     }
