@@ -47,5 +47,6 @@ Module 14 Challenge - MVC Tech Blog
         login.js
         logout
         dashboard (render dash all posts, all comments, create newp)
+        create new post partial
     css:
         styles
