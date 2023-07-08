@@ -1,0 +1,48 @@
+<header>
+    <div>
+        <h1>Homepage</h1>
+        <p>Welkom op de homepage</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/blogposts">Posts</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+    <section>
+        <h2>Welkom op de homepage</h2>
+        <p>This is a description</p>
+    </section>
+
+    <section>
+        <h2>All Posts</h2>
+        <div>
+            {{#each blogposts}}
+            <article>
+                <div class="card-header">
+                <h3><u>{{title}}</u></h3>
+                </div>
+                <div class="card-subtitle">
+                <p><b>Author:</b> {{user_id}}</p>
+                <p>Written on: {{created_at}}</p>
+                </div>
+                <div class="card-body">
+                <p>{{content}}</p>
+                </div>
+                <div class="card-footer">
+                <p>Comments: {{totalComments}}</p>
+                </div>
+            </article>
+            {{/each}}
+        </div>
+    </section>
+
+    <section>
+    </section>
