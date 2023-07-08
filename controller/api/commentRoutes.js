@@ -139,6 +139,20 @@ router.put('/:id', withAuth, async (req, res) => {
     };
 });
 
-
-
 //delete comment
+router.delete('/:id', withAuth, async (req, res) =>{
+    try {
+        const commentData = await Comment.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        if(!commentData){
+            res.status(400).json({message: 'cannot delete comment, no comment found u moron'})
+        };
+        res.status(200).json({message: `u deleted comment ${req.params.id} doofus`})
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
