@@ -97,7 +97,7 @@ router.post('/blogpost/:id', withAuth, async (req, res) => {
 });
 
 //get comment by id
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const commentData = await Comment.findByPk( req.params.id, {
             include: {
@@ -113,6 +113,28 @@ router.get('/:id', withAuth, async (req, res) => {
         };
         res.status(200).json(commentData);
     } catch (err){
+        res.status(500).json(err);
+    };
+});
+
+//update comment
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const commentData = req.body.trim();
+        if(!commentData){
+            res.status(400).json({message: 'no comment detected, comment not updated.'});
+        }
+        const updateComment = await Comment.update({ 
+            comment: commentData
+         }, 
+         {
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        res.status(200).json(updateComment);
+    } catch (err) {
         res.status(500).json(err);
     };
 });
