@@ -11,11 +11,23 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['username'],
                 },
+                {
+                    model: Comment,
+                }
             ],
         });
+        for(const blogpost of blogpostData) {
+            const totalComments = await Comment.findAndCountAll({
+                where: {
+                    blogpost_id: blogpost.id,
+                },
+            });
+            blogpost.dataValues.totalComments = totalComments.count;
+        }
         const blogposts = blogpostData.map((blogpost) => blogpost.get({
             where:{user_id: req.session.user_id}}, { plain: true }));
         // res.status(200).json(blogposts);
+
         res.render('homepage', {
             blogposts,
             logged_in: req.session.logged_in,
@@ -27,13 +39,21 @@ router.get('/', async (req, res) => {
 
 //get blogpost by id, to view specific blogpost
 router.get('/blogpost/:id', async (req, res) => {
-    try {
-        const blogpostData = await BlogPost.findByPk(req.params.id, {
-            include: 
-                {
+    try { 
+        const blogpostData = await BlogPost.findByPk(req.params.id, { //finding the blogpost by id
+            include: [//super nested join object, by doing a nested join, the users as both blogposter and commenters are included and easily distinguished
+                {//includes username of poster
                     model: User,
                     attributes: ['username'],
                 },
+                {//includes comments of that post
+                    model: Comment,
+                    include: {//which then includes all the usernames of the commenters
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+            ],
         });
         const blogpost = blogpostData.get({ plain: true });
         res.render('blogpost', {
@@ -50,7 +70,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: BlogPost }],
+            include: [{ model: BlogPost }, {model: Comment}],
         });
         const user = userData.get({ plain: true });
         res.render('dashboard', {
@@ -67,7 +87,7 @@ router.get('/profile/:id', async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: BlogPost }],
+            include: [{ model: BlogPost }, {model: Comment}],
         });
         const user = userData.get({ plain: true });
         res.render('profile', {
