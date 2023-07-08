@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
+const { findByPk } = require('../../models/user');
 const withAuth = require('../../utils/auth');
 
 //get all comments route
@@ -95,9 +96,27 @@ router.post('/blogpost/:id', withAuth, async (req, res) => {
     }
 });
 
-//update comment
-router.put('/:id', withAuth, async (req, res) => {
-    
-})
+//get comment by id
+router.get('/:id', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk( req.params.id, {
+            include: {
+                model: BlogPost,
+                include: {
+                    model: User,
+                    attributes: ['username'],
+                },
+            },
+        });
+        if(!commentData){
+            res.status(404).json({message: 'No comment found w that id dummy'});
+        };
+        res.status(200).json(commentData);
+    } catch (err){
+        res.status(500).json(err);
+    };
+});
+
+
 
 //delete comment
