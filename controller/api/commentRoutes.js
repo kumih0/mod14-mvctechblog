@@ -76,3 +76,28 @@ router.get('/blogpost/:id', async (req, res) => {
     };
 });
 
+//create new comment on blogpost
+router.post('/blogpost/:id', withAuth, async (req, res) => {
+    try{
+        const commentData = req.body.trim();
+        if (!commentData) {
+            res.status(400).json(`No comment detected, can't post to blogpost ${req.params.id}`);
+        };
+
+        const newComment = await Comment.create({
+            comment: commentData,
+            user_id: req.session.user_id,
+            blogpost_id: req.params.id, 
+        });
+        res.status(200).json(newComment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//update comment
+router.put('/:id', withAuth, async (req, res) => {
+    
+})
+
+//delete comment
