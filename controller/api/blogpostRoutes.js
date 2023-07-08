@@ -104,7 +104,7 @@ router.put('/:id', withAuth, async (req, res) => {
             }
         })
         if(!blogpostData){
-            res.status(404).json('No blogpost with that id!')
+            res.status(404).json({message: 'No blogpost with that id!'})
         }
         res.status(200).json(blogpostData);
 

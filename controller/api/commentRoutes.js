@@ -1,0 +1,78 @@
+const router = require('express').Router();
+const { User, BlogPost, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
+
+//get all comments route
+router.get('/', async (req, res) => {
+    try {
+        const commentData = await Comment.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: BlogPost,
+                    attributes: ['title'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+            ],
+        });
+        const allComments = commentData.map((comment) => comment.get({plain: true}));
+        res.status(200).json(allComments);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//get all comments by user id
+router.get('/user/:id', async (req, res) => {
+    try {
+        const commentData = await Comment.findAll({
+            where:{
+                user_id: req.params.id
+            },
+            include: {
+                model: BlogPost,
+                attributes: ['title, created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                },
+            },
+        });
+        if(!commentData){
+            res.status(404).json({message: `No comments found by user ${req.params.id}`})
+        }
+        const allUserComments = commentData.map((comment) => comment.get({plain: true}));
+        res.status(200).json(allUserComments);
+    } catch(err){
+        res.status(500).json(err);
+    }
+});
+
+//get all comments for specific blogpost by id
+router.get('/blogpost/:id', async (req, res) => {
+    try {
+        const commentData = await Comment.findAll({
+            where: {
+                blogpost_id: req.params.id,
+            },
+            include: {
+                model: User,
+                attributes: ['username']
+            },
+        });
+        if (!commentData) {
+            res.status(404).json({ message: `No comments found for blogpost ${req.params.id}` });
+        };
+        const allBlogpostComments = commentData.map((comment) => comment.get({plain: true}));
+        res.status(200).json(allBlogpostComments);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
