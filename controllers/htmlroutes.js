@@ -24,8 +24,7 @@ router.get('/', async (req, res) => {
             });
             blogpost.dataValues.totalComments = totalComments.count;
         }
-        const blogposts = blogpostData.map((blogpost) => blogpost.get({
-            where:{user_id: req.session.user_id}}, { plain: true }));
+        const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
         // res.status(200).json(blogposts);
 
         res.render('homepage', {

@@ -1,5 +1,7 @@
 .DS_STORE
-package_lock.json
+.env
+
+package-lock.json
 # Logs
 logs
 *.log
