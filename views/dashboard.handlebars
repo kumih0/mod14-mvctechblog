@@ -11,42 +11,66 @@
 
 {{#if logged_in}}
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3 id="form-header">Create a New Blogpost:</h3>
+    <div class="col-md-6">
+        <h3 id="form-header">Create a New Blogpost:</h3>
 
-    <form class="form blogpost-form">
-      <div class="form-group">
-        <label for="blogpost-title">Blogpost Title:</label>
-        <input class="form-input" type="text" id="blogpost-title" name="blogpost-title" placeholder="Enter your blogppost title" />
-      </div>
-      <div class="form-group">
-        <label for="blogpost-content">Content:</label>
-        <textarea class="form-input" id="blogpost-content" name="blogpost-content" placeholder="What do you want to write about?"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="post-btn">Create</button>
-      </div>
-    </form>
-  </div>
-
-
-  {{#if blogposts.length}}
-  <div class="col-md-6 blogposts-list">
-    <h3>Your Blogposts:</h3>
-
-    {{#each blogposts as |blogpost|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm-primary" id="edit-btn" data-editId="{{blogpost.id}}">EDIT</button>
-        <button class="btn btn-sm btn-danger" id="del-btn" data-delId="{{blogpost.id}}">DELETE</button>
-      </div>
+        <form class="form blogpost-form">
+            <div class="form-group">
+                <label for="blogpost-title">Blogpost Title:</label>
+                <input class="form-input" type="text" id="blogpost-title" name="blogpost-title"
+                    placeholder="Enter your blogppost title" />
+            </div>
+            <div class="form-group">
+                <label for="blogpost-content">Content:</label>
+                <textarea class="form-input" id="blogpost-content" name="blogpost-content"
+                    placeholder="What do you want to write about?"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="post-btn">Create</button>
+            </div>
+        </form>
     </div>
-    {{/each}}
-  </div>
-  {{/if}}
+
+    {{!-- blogposts by user --}}
+    {{#if blogposts.length}}
+    <div class="col-md-6 blogposts-list">
+        <h3>Your Blogposts:</h3>
+
+        {{#each blogposts as |blogpost|}}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-sm-primary" id="edit-btn-bp" data-editIdp="{{blogpost.id}}">EDIT</button>
+                <button class="btn btn-sm btn-danger" id="del-btn-bp" data-delIdp="{{blogpost.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    {{!-- comments by user --}}
+    {{#if comments.length}}
+    <div class="col-md-6 comments-list">
+        <h3>Your Comments:</h3>
+        {{#each comments as |comment|}}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <h4><a href="/blogpost/{{comment.blogpost_id}}">On {{blogpost.title}}, you commented:</h4></a>
+                <a href="/api/comments/{{comment.id}}">
+                    <h6>{{comment.comment}}</h6>
+                </a>
+                <p class="text-muted">{{comment.createdAt}}</p>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-sm-primary" id="edit-btn-c" data-editIdc="{{comment.id}}">EDIT</button>
+                <button class="btn btn-sm btn-danger" id="del-btn-c" data-delIdc="{{comment.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
 </div>
 {{/if}}
 

@@ -9,7 +9,7 @@
     </div>
 </div>
 
-
+{{!-- blogposts by user --}}
   {{#if blogposts.length}}
   <div class="col-md-6 project-list">
     <h3>Blogposts by {{username}}:</h3>
@@ -26,3 +26,19 @@
     {{/each}}
   </div>
   {{/if}}
+
+{{!-- comments by user --}}
+    {{#if comments.length}}
+    <div class="col-md-6 comments-list">
+        <h3>Comments by {{username}}:</h3>
+        {{#each comments as |comment|}}
+        <div class="row mb-2">
+        <div class="col-md-8">
+            <h4><a href="/blogpost/{{comment.blogpost_id}}">On {{comment.blogpost.title}}, {{username}} commented:</h4></a>
+            <p class="text-muted">Created on {{comment.createdAt}}</p>
+            <p>{{comment.comment}}</p>
+        </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
