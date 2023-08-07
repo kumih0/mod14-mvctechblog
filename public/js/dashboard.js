@@ -78,3 +78,7 @@ const editBlogpostHandler = async (event) => {
         alert(response.statusText);
     }
 };
+
+document.querySelector('.blogpost-form').addEventListener('submit', newBlogpostHandler);
+document.querySelector('#del-btn').addEventListener('click', deleteBlogpostHandler);
+document.querySelector('#edit-btn').addEventListener('click', editBlogpostRender);

@@ -31,7 +31,7 @@
 
 
   {{#if blogposts.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6 blogposts-list">
     <h3>Your Blogposts:</h3>
 
     {{#each blogposts as |blogpost|}}
@@ -40,8 +40,8 @@
         <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm-primary" data-editId="{{blogpost.id}}">EDIT</button>
-        <button class="btn btn-sm btn-danger" data-delId="{{blogpost.id}}">DELETE</button>
+        <button class="btn btn-sm-primary" id="edit-btn" data-editId="{{blogpost.id}}">EDIT</button>
+        <button class="btn btn-sm btn-danger" id="del-btn" data-delId="{{blogpost.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -49,3 +49,5 @@
   {{/if}}
 </div>
 {{/if}}
+
+<script src="../public/js/dashboard.js"></script>
