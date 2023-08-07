@@ -9,7 +9,7 @@
     </div>
 </div>
 
-{{#if loggedIn && username===session.username}}
+{{#if loggedIn && username === session.username}}
     {{> blogpostForm}}
 {{/if}}
 
@@ -23,7 +23,8 @@
         <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
+        <button class="btn btn-sm-primary" data-editId="{{blogpost.id}}">EDIT</button>
+        <button class="btn btn-sm btn-danger" data-delId="{{blogpost.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
