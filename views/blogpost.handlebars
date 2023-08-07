@@ -11,9 +11,6 @@
                     <!-- Post meta content-->
                     <div class="text-muted fst-italic mb-2">{{createdAt}}</div>
                     <div class="text-muted fst-italic mb-2">Posted by {{username}}</div>
-                    <!-- Post categories-->
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
                 </header>
                 <!-- Post content-->
                 <section class="mb-5">
@@ -39,8 +36,9 @@
                         {{/each}}
                         <!-- Comment form-->
                         {{#if logged_in}}
-                        <form class="mb-4"><textarea class="form-control" rows="3"
-                                placeholder="Join the discussion and leave a comment!"></textarea></form>
+                        <form class="mb-4" id="comment-form"><textarea class="form-control" rows="3"
+                                placeholder="Join the discussion and leave a comment!" id="comment-content"></textarea>
+                        </form>
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-primary text-uppercase" type="submit">Add Comment</button>
                         </div>
@@ -55,3 +53,5 @@
         </div>
     </div>
 </div>
+
+<script src="../public/js/blogpost.js"></script>
