@@ -9,13 +9,30 @@
     </div>
 </div>
 
-{{#if loggedIn && username === session.username}}
-    {{> blogpostForm}}
-{{/if}}
+{{#if logged_in}}
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3 id="form-header">Create a New Blogpost:</h3>
+
+    <form class="form blogpost-form">
+      <div class="form-group">
+        <label for="blogpost-title">Blogpost Title:</label>
+        <input class="form-input" type="text" id="blogpost-title" name="blogpost-title" placeholder="Enter your blogppost title" />
+      </div>
+      <div class="form-group">
+        <label for="blogpost-content">Content:</label>
+        <textarea class="form-input" id="blogpost-content" name="blogpost-content" placeholder="What do you want to write about?"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="post-btn">Create</button>
+      </div>
+    </form>
+  </div>
+
 
   {{#if blogposts.length}}
   <div class="col-md-6 project-list">
-    <h3>Blogposts by {{username}}:</h3>
+    <h3>Your Blogposts:</h3>
 
     {{#each blogposts as |blogpost|}}
     <div class="row mb-2">
@@ -31,3 +48,4 @@
   </div>
   {{/if}}
 </div>
+{{/if}}
