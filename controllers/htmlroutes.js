@@ -36,6 +36,51 @@ router.get('/', async (req, res) => {
     }
 });
 
+//get login page
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+    }
+    res.render('login');
+});
+
+//logout route
+router.get('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.redirect('/');
+            console.log('logged out');
+        });
+    } else {
+        res.redirect('/');
+    }
+});
+
+//get all blogposts
+router.get('/blogposts', async (req, res) => {
+    try {
+        const blogpostData = await BlogPost.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                },
+            ],
+        });
+        const blogposts = blogpostData.map((blogpost) => blogpost.get({ plain: true }));
+        res.render('blogposts', {
+            ...blogposts,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 //get blogpost by id, to view specific blogpost
 router.get('/blogpost/:id', async (req, res) => {
     try { 
