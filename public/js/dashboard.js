@@ -7,14 +7,14 @@ const newBlogpostHandler = async (event) => {
     const content = document.querySelector('#blogpost-content').value.trim();
 
     if (title && content) {
-        const response = await fetch('/api/blogposts', {
+        const response = await fetch('/api/blogposts/', {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.reload();
         }
         else {
             alert(response.statusText);
@@ -39,7 +39,6 @@ const deleteBlogpostHandler = async (event) => {
     }
 };
 
-
 const editBlogpostRender = async (event) => {
     if (event.target.hasAttribute('data-editIdp')) {
         const id = event.target.getAttribute('data-editIdp');
@@ -59,7 +58,6 @@ const editBlogpostRender = async (event) => {
         }
 
         document.querySelector('#post-btn').addEventListener('click', editBlogpostHandler);
-
     }
 };
 

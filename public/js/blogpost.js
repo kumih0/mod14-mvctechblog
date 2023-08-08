@@ -1,7 +1,7 @@
 const newCommentHandler = async (event) => {
     event.preventDefault();
     const content = document.querySelector('#comment-content').value.trim();
-    const blogpost_id = document.querySelector('#blogpost-id').value.trim();
+    const blogpost_id = document.getAttribute('data-blogpostId').value.trim();
 
     if (content) {
         const response = await fetch('/api/comments', {
@@ -11,7 +11,7 @@ const newCommentHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace(`/blogpost/${blogpost_id}`);
+            document.reload();
         }
         else {
             alert(response.statusText);
@@ -19,4 +19,4 @@ const newCommentHandler = async (event) => {
     }
 }
 
-document.querySelector('#comment-form').addEventListener('submit', newCommentHandler);
+document.querySelector('#comment-btn').addEventListener('click', newCommentHandler);

@@ -10,17 +10,17 @@
 </div>
 
 {{!-- blogposts by user --}}
-{{#if blogposts.length}}
+{{#if blogposts}}
 <div class="col-md-6 project-list">
   <h3>Blogposts by {{username}}:</h3>
 
   {{#each blogposts as |blogpost|}}
   <div class="row mb-2">
     <div class="col-md-8">
-      <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
-      <p class="text-muted">Created on {{blogpost.createdAt}}</p>
-      <div class="blogpost-content">{{{blogpost.content}}}</div>
-      <div class="blogpost-comments">Comments: {{blogpost.comments.length}}</div>
+      <h4><a href="/blogpost/{{id}}">{{title}}</a></h4>
+      <p class="text-muted">Created on {{createdAt}}</p>
+      <div class="blogpost-content">{{content}}</div>
+      <div class="blogpost-comments">Comments: {{comments.length}}</div>
     </div>
   </div>
   {{/each}}
@@ -34,9 +34,9 @@
   {{#each comments as |comment|}}
   <div class="row mb-2">
     <div class="col-md-8">
-      <h4><a href="/blogpost/{{comment.blogpost_id}}">On {{comment.blogpost.title}}, {{username}} commented:</h4></a>
-      <p class="text-muted">Created on {{comment.createdAt}}</p>
-      <p>{{comment.comment}}</p>
+      <h4><a href="/blogpost/{{blogpost_id}}">On {{blogpost.title}}, {{user.username}} commented:</h4></a>
+      <p class="text-muted">Created on {{createdAt}}</p>
+      <p>{{comment}}</p>
     </div>
   </div>
   {{/each}}

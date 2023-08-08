@@ -32,18 +32,18 @@
     </div>
 
     {{!-- blogposts by user --}}
-    {{#if blogposts.length}}
+    {{#if blogposts}}
     <div class="col-md-6 blogposts-list">
         <h3>Your Blogposts:</h3>
 
         {{#each blogposts as |blogpost|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
+                <h4><a href="/blogpost/{{id}}">{{title}}</a></h4>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-sm-primary" id="edit-btn-bp" data-editIdp="{{blogpost.id}}">EDIT</button>
-                <button class="btn btn-sm btn-danger" id="del-btn-bp" data-delIdp="{{blogpost.id}}">DELETE</button>
+                <button class="btn btn-sm-primary" id="edit-btn-bp" data-editIdp="{{id}}">EDIT</button>
+                <button class="btn btn-sm btn-danger" id="del-btn-bp" data-delIdp="{{id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
@@ -51,15 +51,15 @@
     {{/if}}
 
     {{!-- comments by user --}}
-    {{#if comments.length}}
+    {{#if comments}}
     <div class="col-md-6 comments-list">
         <h3>Your Comments:</h3>
         {{#each comments as |comment|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/blogpost/{{comment.blogpost_id}}">On {{comment.blogpost.title}}, you commented:</h4></a>
-                <h6>{{comment.comment}}</h6>
-                <p class="text-muted">{{comment.createdAt}}</p>
+                <h4><a href="/blogpost/{{blogpost_id}}">On {{blogpost.title}}, you commented:</h4></a>
+                <h6>{{comment}}</h6>
+                <p class="text-muted">{{createdAt}}</p>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-sm-primary" id="edit-btn-c" data-editIdc="{{comment.id}}">EDIT</button>

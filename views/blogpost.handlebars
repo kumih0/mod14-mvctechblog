@@ -10,7 +10,7 @@
                     <h1 class="fw-bolder mb-1">{{title}}</h1>
                     <!-- Post meta content-->
                     <div class="text-muted fst-italic mb-2">{{createdAt}}</div>
-                    <div class="text-muted fst-italic mb-2">Posted by {{username}}</div>
+                    <div class="text-muted fst-italic mb-2">Posted by {{user.username}}</div>
                 </header>
                 <!-- Post content-->
                 <section class="mb-5">
@@ -28,19 +28,19 @@
                             <div class="flex-shrink-0"><img class="rounded-circle"
                                     src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                             <div class="ms-3">
-                                <div class="fw-bold">{{comment.username}}</div>
-                                <div class="small text-muted">{{comment.createdAt}}</div>
+                                <div class="fw-bold">{{user.username}}</div>
+                                <div class="small text-muted">{{createdAt}}</div>
                                 <p>{{comment.comment}}</p>
                             </div>
                         </div>
                         {{/each}}
                         <!-- Comment form-->
                         {{#if logged_in}}
-                        <form class="mb-4" id="comment-form"><textarea class="form-control" rows="3"
+                        <form class="mb-4" id="comment-form" data-blogpostId={{id}}><textarea class="form-control" rows="3"
                                 placeholder="Join the discussion and leave a comment!" id="comment-content"></textarea>
                         </form>
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary text-uppercase" type="submit">Add Comment</button>
+                            <button class="btn btn-primary text-uppercase" type="submit" id="comment-btn">Add Comment</button>
                         </div>
                         {{else}}
                         <div class="d-flex justify-content-end">

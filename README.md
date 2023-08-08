@@ -2,6 +2,8 @@
 Module 14 Challenge - MVC Tech Blog
 
 ## Description
+- A totally real tech blog with real content written by definite real people and not just me!
+- Attempted to use a template and bootstrap but alas, we are in ugly box hell and flummoxed by these infernal columns.
 - Created User, Blogpost, and Comment models, schemas in sequelize
 - HTML and API routes, (for user, blogpost, and comments)
 - CRUD routes for relevant routes

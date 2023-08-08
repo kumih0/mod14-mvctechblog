@@ -1,28 +1,25 @@
 {{!-- Login and Signup Form --}}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 m-auto p-2">
         <h2 class="mb-4">Login</h2>
         <form class="form login-form">
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input name="email" type="email" class="form-control" id="email-login">
+                <label for="username" class="form-label">Username:</label>
+                <input name="username" type="text" class="form-control" id="username-login">
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="password-login">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" id="login">Login</button>
             </div>
         </form>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 m-auto p-2">
         <h2 class="mb-4">Signup</h2>
         <form class="form signup-form">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input name="username" type="text" class="form-control" id="username-signup">
-                <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input name="email" type="email" class="form-control" id="email-signup">
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="password-signup">
