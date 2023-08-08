@@ -1,6 +1,30 @@
 # mod14-mvctechblog
 Module 14 Challenge - MVC Tech Blog
 
+## Description
+- Created User, Blogpost, and Comment models, schemas in sequelize
+- HTML and API routes, (for user, blogpost, and comments)
+- CRUD routes for relevant routes
+- Seed data for users, blogposts, and comments
+- Break down pieces into handlebars for front end
+- connecting front-end scripts to read or send data from database
+- Routes and structure based on MVC app structure
+
+## Dependencies
+- Node.js
+- Express
+- Express-handlebars
+- Express-session
+- MySQL2 and Sequelize
+- Bcrypt
+
+## Github Repo Link
+
+![This very repo!](https://github.com/kumih0/mod14-mvctechblog)
+
+## Live Link
+
+
 
 ### Pseudo Code
 >Everything from scratch
