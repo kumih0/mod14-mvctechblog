@@ -29,8 +29,10 @@ Module 14 Challenge - MVC Tech Blog
 https://warm-mesa-74352-ae10bc56c399.herokuapp.com/
 
 ## Screenshot
+<img width="1809" alt="Screen Shot 2023-08-08 at 12 28 01 AM" src="https://github.com/kumih0/mod14-mvctechblog/assets/132851569/74c0d155-39cf-4230-a77c-70b8da03d3c8">
 
 pls no boolie he is uglee but he doing he best
+<img width="1809" alt="Screen Shot 2023-08-08 at 12 27 30 AM" src="https://github.com/kumih0/mod14-mvctechblog/assets/132851569/496dfc26-aac9-4d7c-ac5b-6e813c55a2dc">
 
 ### Pseudo Code
 >Everything from scratch
