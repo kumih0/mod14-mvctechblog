@@ -26,7 +26,11 @@ Module 14 Challenge - MVC Tech Blog
 
 ## Live Link
 
+https://warm-mesa-74352-ae10bc56c399.herokuapp.com/
 
+## Screenshot
+
+pls no boolie he is uglee but he doing he best
 
 ### Pseudo Code
 >Everything from scratch
